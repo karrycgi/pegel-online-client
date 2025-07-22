@@ -4,10 +4,11 @@
   "description": "",
   "private": true,
   "workspaces": [
-    "packeges/*"
+    "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --if-exists --workspaces"
+    "build": "npm run build --if-exists --workspaces",
+    "test": "npm run test --if-exists --workspaces"
   },
   "repository": {
     "type": "git",
