@@ -1,1 +1,1 @@
-console.log("Hello CGI!")
+console.log("Hello CGI!!!")
