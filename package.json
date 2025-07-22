@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "build": "npm run build --if-exists --workspaces",
-    "test": "npm run test --if-exists --workspaces"
+    "test": "npm run test --if-exists --workspaces",
+    "lint": "npm run lint --if-exists --workspaces"
   },
   "repository": {
     "type": "git",
