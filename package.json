@@ -1,0 +1,22 @@
+{
+  "name": "pegel-online-client",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "packeges/*"
+  ],
+  "scripts": {
+    "build": "npm run build --if-exists --workspaces"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karrycgi/pegel-online-client.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karrycgi/pegel-online-client/issues"
+  },
+  "homepage": "https://github.com/karrycgi/pegel-online-client#readme"
+}
