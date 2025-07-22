@@ -7,9 +7,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --if-exists --workspaces",
-    "test": "npm run test --if-exists --workspaces",
-    "lint": "npm run lint --if-exists --workspaces"
+    "build": "npm run build --if-present --workspaces",
+    "test": "npm run test --if-present --workspaces",
+    "lint": "npm run lint --if-present --workspaces"
   },
   "repository": {
     "type": "git",
