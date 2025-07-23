@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm run build",
     "build": "tsc -project tsconfig.prod.json",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -21,5 +22,8 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0"
+  },
+  "dependencies": {
+    "zod": "^4.0.5"
   }
 }
