@@ -9,6 +9,7 @@
   "scripts": {
     "build": "npm run build --if-present --workspaces",
     "test": "npm run test --if-present --workspaces",
+    "test:client-api:watch": "npm run test:watch --if-present --workspace=client-api",
     "lint": "npm run lint --if-present --workspaces",
     "web:dev": "npm run dev --if-present --workspace=web"
   },

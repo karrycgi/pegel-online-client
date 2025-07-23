@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc -project tsconfig.prod.json",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint ."
   },
   "author": "",
