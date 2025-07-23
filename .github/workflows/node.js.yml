@@ -22,8 +22,5 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run lint
-    - name: Build everything
-      env:
-        NEXT_PUBLIC_BASE_PATH: /pegel-online-client
-      run: npm run build --if-present
+    - run: npm run build --if-present
     - run: npm test
