@@ -16,7 +16,7 @@ export interface DeckGelOverviewProps {
     stations: StationOverviewResult
 }
 
-export default function DeckGlOverview({stations}:DeckGelOverviewProps) {
+export default function DeckGlOverview({ stations }: DeckGelOverviewProps) {
     const layer = new IconLayer<Station>({
         id: 'IconLayer',
         data: stations,
@@ -33,15 +33,15 @@ export default function DeckGlOverview({stations}:DeckGelOverviewProps) {
         initialViewState={INITIAL_VIEW_STATE}
         controller
         layers={[layer]}
-        getTooltip={({object}: PickingInfo<Station>) => (object && { 
-            ...object, 
+        getTooltip={({ object }: PickingInfo<Station>) => (object ? {
+            ...object,
             html: `<div>
                 <div>${object?.longname} (${object?.shortname})<div>
                 <div>${object.water.longname} (${object.water.shortname})</div>
                 <div>${object?.km}km</div>
                 <div></div>
             </div>`
-        })}
+        } : null)}
     >
         <Map mapStyle={BASEMAP.DARK_MATTER} />
     </DeckGL>;
