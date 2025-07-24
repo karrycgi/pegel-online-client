@@ -4,6 +4,7 @@ import { BASEMAP } from "@deck.gl/carto";
 import { Station } from "@pegel/client-api";
 import { StationOverviewResult } from "@pegel/client-api/out/model/StationOverviewResult.zod";
 import DeckGL, { IconLayer, MapViewState, PickingInfo } from "deck.gl"
+import { useRouter } from "next/navigation";
 import Map from "react-map-gl/maplibre";
 
 const INITIAL_VIEW_STATE: MapViewState = {
@@ -17,12 +18,16 @@ export interface DeckGelOverviewProps {
 }
 
 export default function DeckGlOverview({ stations }: DeckGelOverviewProps) {
+    const router = useRouter();
     const layer = new IconLayer<Station>({
         id: 'IconLayer',
         data: stations,
-        getColor: (_d: Station) => [255, 0, 0],
-        getIcon: (_d: Station) => 'marker',
-        getPosition: (d: Station) => [d.longitude || 0, d.latitude || 0],
+        onClick: ({ object }) => {
+            router.push(`/stations/${object.uuid}`)
+        },
+        getColor: (_station: Station) => [255, 0, 0],
+        getIcon: (_station: Station) => 'marker',
+        getPosition: (station: Station) => [station.longitude || 0, station.latitude || 0],
         getSize: 40,
         iconAtlas: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png',
         iconMapping: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.json',
@@ -32,6 +37,7 @@ export default function DeckGlOverview({ stations }: DeckGelOverviewProps) {
     return <DeckGL
         initialViewState={INITIAL_VIEW_STATE}
         controller
+        getCursor={({ isHovering }) => (isHovering ? "pointer" : "default")}
         layers={[layer]}
         getTooltip={({ object }: PickingInfo<Station>) => (object ? {
             ...object,
